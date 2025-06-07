@@ -19,3 +19,6 @@ dev = [
 pythonpath = [
   "src",
 ]
+markers = [
+  "acceptance: acceptance tests only on local"
+]
