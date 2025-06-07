@@ -1,11 +1,19 @@
-from factory import create_kafka_consumer_repository
+import typer
+from factory import create_producer_service
+
+app = typer.Typer()
 
 
+@app.command()
+def start_producer():
+    create_producer_service().start()
+
+
+@app.callback()
 def main():
-    repo = create_kafka_consumer_repository()
-    topics = repo.list_topics()
-    print(topics)
+    """Fix: Got unexpected extra argument (start-producer)"""
+    pass
 
 
 if __name__ == "__main__":
-    main()
+    app()

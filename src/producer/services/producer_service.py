@@ -14,7 +14,9 @@ class ProducerService:
         self.transaction_factory = transaction_factory
 
     def start(self, interval_seconds: int = 30):
-        print(f"Starting producer loop (interval: {interval_seconds}s)...")
+        print(
+            f"Starting producer loop (interval: {interval_seconds}s)... Control+c to cancel the loop"
+        )
         try:
             while True:
                 transaction = self.transaction_factory.generate()

@@ -4,12 +4,12 @@ from producer.services.producer_service import ProducerService
 from producer.services.transactions_factory import TransactionsFactory
 
 
-def create_kafka_consumer_repository():
+def create_kafka_consumer_repository() -> KafkaConsumerRepository:
     return KafkaConsumerRepository.from_env()
 
 
-def create_producer_service():
-    ProducerService(
+def create_producer_service() -> ProducerService:
+    return ProducerService(
         kafka_repository=KafkaProducerRepository.from_env(),
         transaction_factory=TransactionsFactory(),
     )
