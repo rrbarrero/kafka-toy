@@ -17,7 +17,7 @@ class KafkaProducerRepository:
 
         producer = KafkaProducer(
             bootstrap_servers=settings.kafka_host,
-            value_serializer=lambda v: Transaction.serializer(v),
+            value_serializer=lambda v: v.serialize(),
         )
 
         return cls(producer)

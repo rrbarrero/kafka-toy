@@ -16,7 +16,7 @@ def test_new_transaction():
 def test_transaction_serialize():
 
     transaction = new_transaction_fixture_from()
-    serialized = Transaction.serializer(transaction)
+    serialized = transaction.serialize()
 
     deserialized = json.loads(serialized.decode("utf-8"))
 

@@ -27,15 +27,14 @@ class Transaction:
             id=uuid4(), timestamp=datetime.datetime.now().timestamp(), **kwargs
         )
 
-    @staticmethod
-    def serializer(transaction: "Transaction"):
+    def serialize(self):
         return json.dumps(
             {
-                "id": str(transaction.id),
-                "timestamp": transaction.timestamp,
-                "amount": transaction.amount,
-                "merchant": transaction.merchant,
-                "customer_id": str(transaction.customer_id),
-                "payment_method": transaction.payment_method.value,
+                "id": str(self.id),
+                "timestamp": self.timestamp,
+                "amount": self.amount,
+                "merchant": self.merchant,
+                "customer_id": str(self.customer_id),
+                "payment_method": self.payment_method.value,
             }
         ).encode("utf-8")
