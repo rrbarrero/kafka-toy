@@ -1,4 +1,3 @@
-from common.domain.transaction import Transaction
 from consumer.infra.kafka_consumer_repository import KafkaConsumerRepository
 from consumer.services.processors.processor import Processor
 
@@ -11,7 +10,7 @@ class ConsumerService:
         self.kafka_repository = kafka_repository
 
     def start(self):
-        print(f"Starting consumer loop. Control+c to cancel the loop")
+        print("Starting consumer loop. Control+c to cancel the loop")
         try:
             while True:
                 batch = self.kafka_repository.pull_queue()

@@ -6,8 +6,8 @@ provision:
 	uv run python ops/kafka/provision.py
 
 
-producer_start:
+producer:
 	uv run --directory src -m main start-producer
 
-consumer_start:
+consumer:
 	uv run --directory src -m main start-consumer

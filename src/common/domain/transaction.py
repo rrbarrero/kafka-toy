@@ -27,17 +27,18 @@ class Transaction:
             id=uuid4(), timestamp=datetime.datetime.now().timestamp(), **kwargs
         )
 
+    def to_dict(self):
+        return {
+            "id": str(self.id),
+            "timestamp": self.timestamp,
+            "amount": self.amount,
+            "merchant": self.merchant,
+            "customer_id": str(self.customer_id),
+            "payment_method": self.payment_method.value,
+        }
+
     def serialize(self):
-        return json.dumps(
-            {
-                "id": str(self.id),
-                "timestamp": self.timestamp,
-                "amount": self.amount,
-                "merchant": self.merchant,
-                "customer_id": str(self.customer_id),
-                "payment_method": self.payment_method.value,
-            }
-        ).encode("utf-8")
+        return json.dumps(self.to_dict()).encode("utf-8")
 
     @staticmethod
     def deserialize(data: bytes):

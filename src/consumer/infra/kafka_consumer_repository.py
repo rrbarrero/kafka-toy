@@ -8,7 +8,6 @@ class KafkaConsumerRepository:
         self.consumer = consumer
 
     def pull_queue(self, size: int = 10):
-
         buffer: list[Transaction] = []
 
         for msg in self.consumer:
@@ -22,7 +21,6 @@ class KafkaConsumerRepository:
 
     @classmethod
     def from_env(cls):
-
         consumer = KafkaConsumer(
             settings.transaction_topic,
             bootstrap_servers=settings.kafka_host,
