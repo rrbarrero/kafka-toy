@@ -2,7 +2,7 @@ from kafka import KafkaConsumer
 from config import settings
 
 
-class KafkaRepository:
+class KafkaConsumerRepository:
     def __init__(self, consumer):
         self.consumer = consumer
 

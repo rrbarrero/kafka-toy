@@ -1,5 +1,5 @@
-from infra.KafkaRepository import KafkaRepository
+from consumer.infra.KafkaRepository import KafkaConsumerRepository
 
 
 def create_kafka_repository():
-    return KafkaRepository.from_env()
+    return KafkaConsumerRepository.from_env()
