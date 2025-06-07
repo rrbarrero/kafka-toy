@@ -1,5 +1,8 @@
 import typer
-from factory import create_kafka_consumer_repository, create_producer_service
+from factory import (
+    create_processors_service,
+    create_producer_service,
+)
 
 app = typer.Typer()
 
@@ -10,8 +13,8 @@ def start_producer():
 
 
 @app.command()
-def run_consumer():
-    print(create_kafka_consumer_repository().pull_queue())
+def start_consumer():
+    create_processors_service().start()
 
 
 @app.callback()

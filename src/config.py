@@ -24,5 +24,9 @@ class Settings:
     def kafka_host(self):
         return f"{self.kafka_host_ip}:{self.port}"
 
+    @property
+    def output_path(self):
+        return Path(__file__).parent.parent / "output"
+
 
 settings = Settings.from_env()

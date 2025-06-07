@@ -9,5 +9,5 @@ provision:
 producer_start:
 	uv run --directory src -m main start-producer
 
-consumer_run:
-	uv run --directory src -m main run-consumer
+consumer_start:
+	uv run --directory src -m main start-consumer
