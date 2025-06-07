@@ -8,7 +8,7 @@ class KafkaProducerRepository:
     def __init__(self, producer: KafkaProducer):
         self.producer = producer
 
-    def send(self, topic: str, key: str, value: Transaction):
+    def send(self, topic: str, value: Transaction, key: str | None = None):
         self.producer.send(topic, key=key, value=value)
         self.producer.flush()
 

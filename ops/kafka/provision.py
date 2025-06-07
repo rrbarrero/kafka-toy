@@ -1,3 +1,4 @@
+from codecs import ignore_errors
 from kafka.admin import KafkaAdminClient, NewTopic
 from config import settings
 
@@ -6,7 +7,10 @@ admin_client = KafkaAdminClient(
     client_id="test_admin",
 )
 
-topic_list = [NewTopic(name="testing_topic", num_partitions=3, replication_factor=1)]
+topic_list = [
+    NewTopic(name="testing_topic", num_partitions=3, replication_factor=1),
+    NewTopic(name=settings.transaction_topic, num_partitions=3, replication_factor=1),
+]
 
 try:
     admin_client.create_topics(new_topics=topic_list, validate_only=False)

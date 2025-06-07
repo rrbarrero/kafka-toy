@@ -8,6 +8,7 @@ import os
 class Settings:
     kafka_host_ip: str
     port: int
+    transaction_topic: str = "transactions"
 
     @classmethod
     def from_env(cls):

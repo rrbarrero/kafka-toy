@@ -1,8 +1,8 @@
-from factory import create_kafka_repository
+from factory import create_kafka_consumer_repository
 
 
 def main():
-    repo = create_kafka_repository()
+    repo = create_kafka_consumer_repository()
     topics = repo.list_topics()
     print(topics)
 
