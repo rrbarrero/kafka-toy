@@ -1,4 +1,4 @@
-from consumer.infra.KafkaRepository import KafkaConsumerRepository
+from consumer.infra.kafka_consumer_repository import KafkaConsumerRepository
 
 
 def create_kafka_repository():

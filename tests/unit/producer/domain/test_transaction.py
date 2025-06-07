@@ -1,7 +1,7 @@
 import json
-from uuid import UUID, uuid4
-from producer.domain.transaction import PaymentMethod, Transaction
-from tests.builders import new_transaction_fixture_from
+from uuid import UUID
+from producer.domain.transaction import Transaction
+from builders import new_transaction_fixture_from
 
 
 def test_new_transaction():
