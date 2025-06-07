@@ -1,5 +1,6 @@
 from uuid import UUID
-from producer.domain.transaction import Transaction
+
+from common.domain.transaction import Transaction
 
 
 def new_transaction_fixture_from(data: dict = {}) -> Transaction:

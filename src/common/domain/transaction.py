@@ -38,3 +38,11 @@ class Transaction:
                 "payment_method": self.payment_method.value,
             }
         ).encode("utf-8")
+
+    @staticmethod
+    def deserialize(data: bytes):
+        _data = json.loads(data.decode("utf-8"))
+        _data["payment_method"] = PaymentMethod(_data["payment_method"])
+        _data["id"] = UUID(_data["id"])
+        _data["customer_id"] = UUID(_data["customer_id"])
+        return Transaction(**_data)

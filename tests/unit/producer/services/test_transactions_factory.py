@@ -1,4 +1,4 @@
-from producer.domain.transaction import Transaction
+from common.domain.transaction import Transaction
 from producer.services.transactions_factory import TransactionsFactory
 
 

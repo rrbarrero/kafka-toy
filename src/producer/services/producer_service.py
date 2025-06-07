@@ -13,7 +13,7 @@ class ProducerService:
         self.kafka_repository = kafka_repository
         self.transaction_factory = transaction_factory
 
-    def start(self, interval_seconds: int = 30):
+    def start(self, interval_seconds: int = 1):
         print(
             f"Starting producer loop (interval: {interval_seconds}s)... Control+c to cancel the loop"
         )

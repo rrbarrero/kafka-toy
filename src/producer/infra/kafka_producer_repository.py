@@ -1,7 +1,7 @@
 from kafka import KafkaProducer
 import json
+from common.domain.transaction import Transaction
 from config import settings
-from producer.domain.transaction import Transaction
 
 
 class KafkaProducerRepository:

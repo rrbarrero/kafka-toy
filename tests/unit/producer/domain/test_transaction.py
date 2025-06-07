@@ -1,6 +1,5 @@
 import json
 from uuid import UUID
-from producer.domain.transaction import Transaction
 from builders import new_transaction_fixture_from
 
 

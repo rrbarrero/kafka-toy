@@ -1,6 +1,6 @@
 from typing import Protocol
 
-from producer.domain.transaction import Transaction
+from common.domain.transaction import Transaction
 
 
 class ProducerRepository(Protocol):

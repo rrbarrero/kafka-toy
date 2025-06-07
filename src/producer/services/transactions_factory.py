@@ -1,6 +1,7 @@
 from uuid import uuid4
 from faker import Faker
-from producer.domain.transaction import PaymentMethod, Transaction
+
+from common.domain.transaction import PaymentMethod, Transaction
 
 
 class TransactionsFactory:
