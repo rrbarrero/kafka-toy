@@ -96,7 +96,6 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-    %% ──────── Topic with three partitions ────────
     subgraph TOPIC["Kafka Topic (3 partitions)"]
         direction LR
         P0["Partition 0"]
@@ -104,30 +103,20 @@ flowchart LR
         P2["Partition 2"]
     end
 
-    %% ──────── Producer ────────
     Producer((Producer))
     Producer --> P0
     Producer --> P1
     Producer --> P2
 
-    %% ──────── Consumer ZULU (own group) ────────
-    subgraph GROUP_ZULU["Consumer Group · test_group_zulu"]
+    %% Shared consumer group
+    subgraph GROUP_ANALYTICS["Consumer Group · analytics"]
         direction TB
-        C1Z["Consumer ZULU"]
+        ZULU["Consumer ZULU"]
+        BRAVO["Consumer BRAVO"]
     end
-    P0 --> C1Z
-    P1 --> C1Z
-    P2 --> C1Z
-
-    %% ──────── Consumer BRAVO (own group) ────────
-    subgraph GROUP_BRAVO["Consumer Group · test_group_bravo"]
-        direction TB
-        C1B["Consumer BRAVO"]
-    end
-    P0 --> C1B
-    P1 --> C1B
-    P2 --> C1B
-
+    P0 --> ZULU
+    P1 --> BRAVO
+    P2 --> ZULU
 
 ```
 
