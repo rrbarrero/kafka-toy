@@ -10,16 +10,21 @@ class ConsumerService:
         self.kafka_repository = kafka_repository
 
     def start(self, daemon=True):
-        print("Starting consumer loop. Control+c to cancel the loop")
+        print(
+            f"[{self.kafka_repository.client_id()}] Starting consumer loop. Control+c to cancel the loop"
+        )
         try:
             while True:
                 batch = self.kafka_repository.get_batch()
                 if not batch:
                     continue
-                print(f"📦 Received batch of {len(batch)} transactions")
+                print(
+                    f"[{self.kafka_repository.client_id()}] Received batch of {len(batch)} transactions",
+                    flush=True,
+                )
                 for processor in self.processors:
                     processor.handle(batch)
                 if not daemon:
                     break
         except KeyboardInterrupt:
-            print("\n🛑 Consumer stopped by user.")
+            print("\nConsumer stopped by user.")

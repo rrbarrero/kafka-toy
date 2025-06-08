@@ -7,8 +7,8 @@ from producer.infra.kafka_producer_repository import KafkaProducerRepository
 from producer.services.producer_service import ProducerService
 
 
-def create_kafka_consumer_repository() -> KafkaConsumerRepository:
-    return KafkaConsumerRepository.from_env()
+def create_kafka_consumer_repository(client_id: str) -> KafkaConsumerRepository:
+    return KafkaConsumerRepository.default_with(client_id)
 
 
 def create_producer_service() -> ProducerService:
@@ -18,12 +18,12 @@ def create_producer_service() -> ProducerService:
     )
 
 
-def create_processors_service():
+def create_consumer_service(consumer_client_id: str):
     return ConsumerService(
-        processors=[create_high_value_processor()],
-        kafka_repository=create_kafka_consumer_repository(),
+        processors=[create_high_value_processor(consumer_client_id)],
+        kafka_repository=create_kafka_consumer_repository(consumer_client_id),
     )
 
 
-def create_high_value_processor():
-    return HighValueProcessor(FileSystemRepo())
+def create_high_value_processor(consumer_client_id):
+    return HighValueProcessor(consumer_client_id, FileSystemRepo())

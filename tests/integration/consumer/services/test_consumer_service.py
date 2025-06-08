@@ -42,12 +42,12 @@ def processors():
 @pytest.fixture
 def consumer_service(processors):
     p1, p2 = processors
-    return ConsumerService([p1, p2], FakeConsumerRepository())
+    return ConsumerService([p1, p2], FakeConsumerRepository("zulu"))
 
 
 def test_consumer_service_processes_and_stops(
     consumer_service, expected_transactions, capsys
-):
+) -> None:
     consumer_service.start(daemon=False)
 
     p1, p2 = consumer_service.processors
@@ -59,4 +59,4 @@ def test_consumer_service_processes_and_stops(
     captured_output = capsys.readouterr().out
 
     assert "Starting consumer loop. Control+c to cancel the loop" in captured_output
-    assert "📦 Received batch of 10 transactions" in captured_output
+    assert "[client zulu] Received batch of 10 transactions\n" in captured_output

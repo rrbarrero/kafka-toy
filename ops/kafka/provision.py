@@ -1,4 +1,3 @@
-from codecs import ignore_errors
 from kafka.admin import KafkaAdminClient, NewTopic
 from config import settings
 
