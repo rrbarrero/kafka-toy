@@ -59,6 +59,38 @@ Starting producer loop (interval: 2s)... Control+c to cancel the loop
 For tinkering we default to **distinct groups**: `test_group_zulu` and
 `test_group_bravo`, so you can see both clients handle every message.
 
+```mermaid
+flowchart LR
+    subgraph Kafka Topic  (3 partitions)
+        direction LR
+        P0[Partition 0]
+        P1[Partition 1]
+        P2[Partition 2]
+    end
+
+    Producer((Producer))
+    Producer --writes--> P0 & P1 & P2
+
+    %% Consumer Zulu (own group)
+    subgraph Group_Zulu["Consumer Group  ➜  test_group_zulu"]
+        direction TB
+        C1Z[Consumer ≡ ZULU]
+    end
+    P0 --> C1Z
+    P1 --> C1Z
+    P2 --> C1Z
+
+    %% Consumer Bravo (own group)
+    subgraph Group_Bravo["Consumer Group  ➜  test_group_bravo"]
+        direction TB
+        C1B[Consumer ≡ BRAVO]
+    end
+    P0 --> C1B
+    P1 --> C1B
+    P2 --> C1B
+
+```
+
 ---
 
 ## Project goals
