@@ -1,55 +1,44 @@
 import json
-import os
+import pytest
+
+from common.domain.transaction import Transaction
 from consumer.infra.filesystem_repo import FileSystemRepo
 from builders import new_transaction_fixture_from
 
 
-def test_append(tmpdir):
-    repo = FileSystemRepo(output_path=tmpdir)
-    transaction = new_transaction_fixture_from()
-    file_name = "test_file"
-    repo.append(transaction, file_name)
+@pytest.fixture
+def repo(tmp_path):
+    return FileSystemRepo(output_path=tmp_path)
+
+
+def read_rows(repo: FileSystemRepo, file_name: str):
 
     file_path = repo.output_path / f"{file_name}.json"
-    assert os.path.exists(file_path)
-    with open(file_path, "r") as fr:
-        rows = json.load(fr)
-        assert len(rows) == 1
-        assert rows[0] == transaction.to_dict()
+    assert file_path.exists(), f"Expected file {file_path} to exist"
+    with file_path.open("r") as fr:
+        return json.load(fr)
 
 
-def test_append_multiple(tmpdir):
-    repo = FileSystemRepo(output_path=tmpdir)
-    transactions = [
-        new_transaction_fixture_from({"amount": 100, "merchant": "merchant_name"}),
-        new_transaction_fixture_from({"amount": 200, "merchant": "another_merchant"}),
-    ]
+@pytest.mark.parametrize(
+    "transactions",
+    [
+        [new_transaction_fixture_from()],
+        [
+            new_transaction_fixture_from({"amount": 100, "merchant": "merchant_name"}),
+            new_transaction_fixture_from(
+                {"amount": 200, "merchant": "another_merchant"}
+            ),
+        ],
+    ],
+)
+def test_append_transactions(repo: FileSystemRepo, transactions: list[Transaction]):
     file_name = "test_file"
-    for transaction in transactions:
-        repo.append(transaction, file_name)
 
-    file_path = repo.output_path / f"{file_name}.json"
-    assert os.path.exists(file_path)
-    with open(file_path, "r") as fr:
-        rows = json.load(fr)
-        assert len(rows) == 2
-        for i, transaction in enumerate(transactions):
-            assert rows[i] == transaction.to_dict()
+    for tx in transactions:
+        repo.append(tx, file_name)
 
+    rows = read_rows(repo, file_name)
+    assert len(rows) == len(transactions), "Should be the same rows than transactions"
 
-def test_append_existing_file(tmpdir):
-    repo = FileSystemRepo(output_path=tmpdir)
-    transaction1 = new_transaction_fixture_from({"amount": 1})
-    file_name = "test_file"
-    repo.append(transaction1, file_name)
-
-    transaction2 = new_transaction_fixture_from({"amount": 2})
-    repo.append(transaction2, file_name)
-
-    file_path = repo.output_path / f"{file_name}.json"
-    assert os.path.exists(file_path)
-    with open(file_path, "r") as fr:
-        rows = json.load(fr)
-        assert len(rows) == 2
-        for i, transaction in enumerate([transaction1, transaction2]):
-            assert rows[i] == transaction.to_dict()
+    expected = [tx.to_dict() for tx in transactions]
+    assert rows == expected
