@@ -45,7 +45,8 @@ Starting producer loop (interval: 2s)... Control+c to cancel the loop
 ✅ Sent transaction: f0d7672c-54f3-4b67-a2a9-523ac5c12728
 [client 🔵 ZULU] Received batch of 2 transactions
 ^C\n🛑 Stopping producer and consumer…
-``
+```
+
 
 
 ## Why two consumers?
