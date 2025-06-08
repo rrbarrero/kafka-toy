@@ -15,8 +15,8 @@ The repo spins up three moving parts:
 Running `make play` launches **all three** in one terminal; hit **Ctrl +C** to
 shut everything down in one go.
 
+```bash
 ❯ make play
-
 echo "Starting producer and consumer. Ctrl+C to stop both."
 trap 'echo "\n🛑 Stopping producer and consumer…"; kill 0' SIGINT
 uv run --directory src -m main start-producer &
@@ -45,6 +45,7 @@ Starting producer loop (interval: 2s)... Control+c to cancel the loop
 ✅ Sent transaction: f0d7672c-54f3-4b67-a2a9-523ac5c12728
 [client 🔵 ZULU] Received batch of 2 transactions
 ^C\n🛑 Stopping producer and consumer…
+``
 
 
 ## Why two consumers?
