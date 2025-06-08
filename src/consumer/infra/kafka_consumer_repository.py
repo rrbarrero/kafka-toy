@@ -7,7 +7,7 @@ class KafkaConsumerRepository:
     def __init__(self, consumer):
         self.consumer = consumer
 
-    def pull_queue(self, size: int = 10):
+    def get_batch(self, size: int = 10) -> list[Transaction] | None:
         buffer: list[Transaction] = []
 
         for msg in self.consumer:

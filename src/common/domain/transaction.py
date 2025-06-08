@@ -27,6 +27,13 @@ class Transaction:
             id=uuid4(), timestamp=datetime.datetime.now().timestamp(), **kwargs
         )
 
+    @staticmethod
+    def new_from_dict(data: dict):
+        data["payment_method"] = PaymentMethod(data["payment_method"])
+        data["id"] = UUID(data["id"])
+        data["customer_id"] = UUID(data["customer_id"])
+        return Transaction(**data)
+
     def to_dict(self):
         return {
             "id": str(self.id),

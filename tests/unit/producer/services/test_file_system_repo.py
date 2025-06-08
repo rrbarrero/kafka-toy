@@ -6,14 +6,9 @@ from consumer.infra.filesystem_repo import FileSystemRepo
 from builders import new_transaction_fixture_from
 
 
-@pytest.fixture
-def repo(tmp_path):
-    return FileSystemRepo(output_path=tmp_path)
+def read_rows(filesystem_repo: FileSystemRepo, file_name: str):
 
-
-def read_rows(repo: FileSystemRepo, file_name: str):
-
-    file_path = repo.output_path / f"{file_name}.json"
+    file_path = filesystem_repo.output_path / f"{file_name}.json"
     assert file_path.exists(), f"Expected file {file_path} to exist"
     with file_path.open("r") as fr:
         return json.load(fr)
@@ -31,13 +26,15 @@ def read_rows(repo: FileSystemRepo, file_name: str):
         ],
     ],
 )
-def test_append_transactions(repo: FileSystemRepo, transactions: list[Transaction]):
+def test_append_transactions(
+    filesystem_repo: FileSystemRepo, transactions: list[Transaction]
+):
     file_name = "test_file"
 
     for tx in transactions:
-        repo.append(tx, file_name)
+        filesystem_repo.append(tx, file_name)
 
-    rows = read_rows(repo, file_name)
+    rows = read_rows(filesystem_repo, file_name)
     assert len(rows) == len(transactions), "Should be the same rows than transactions"
 
     expected = [tx.to_dict() for tx in transactions]

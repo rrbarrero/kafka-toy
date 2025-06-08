@@ -18,3 +18,6 @@ class TransactionsFactory:
             customer_id=uuid4(),
             payment_method=self.fake.random_element(payment_methods),
         )
+
+    def generate_batch(self, size: int = 10) -> list[Transaction]:
+        return [self.generate() for _ in range(size)]

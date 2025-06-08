@@ -28,5 +28,9 @@ class Settings:
     def output_path(self):
         return Path(__file__).parent.parent / "output"
 
+    @property
+    def fixture_path(self):
+        return Path(__file__).parent.parent / "tests/__fixtures__"
+
 
 settings = Settings.from_env()

@@ -1,5 +1,5 @@
 from common.domain.transaction import Transaction
-from producer.services.transactions_factory import TransactionsFactory
+from common.services.transactions_factory import TransactionsFactory
 
 
 def test_transactions_factory():

@@ -1,0 +1,162 @@
+[
+    {
+        "id": "a96a53a0-2767-4499-a3fb-e800d193fe60",
+        "timestamp": 1749370618.467362,
+        "amount": 522.74,
+        "merchant": "Schmidt-Hodges",
+        "customer_id": "f0414e86-9ecd-4d03-bae6-4f11dade2292",
+        "payment_method": "credit_card"
+    },
+    {
+        "id": "8d58d049-e878-4a49-946d-e5d358b6b216",
+        "timestamp": 1749370618.467889,
+        "amount": 732.42,
+        "merchant": "Ortiz, Rodriguez and Clark",
+        "customer_id": "6bb9c72b-ea5a-4c9c-b6db-dcd8057ee71a",
+        "payment_method": "credit_card"
+    },
+    {
+        "id": "8e53b9d4-613f-48d1-8d06-210b02374d51",
+        "timestamp": 1749370618.468407,
+        "amount": 470.47,
+        "merchant": "Rodgers, Carter and Nguyen",
+        "customer_id": "72e6971f-2b76-4300-a47c-f7e810c06d2b",
+        "payment_method": "cash"
+    },
+    {
+        "id": "accb4c50-eb97-4a88-b5ab-e6909ff97c04",
+        "timestamp": 1749370618.468903,
+        "amount": 180.15,
+        "merchant": "Chase, Shaw and Mcgee",
+        "customer_id": "fdb402da-2d54-40c3-8c7e-6dda9f591695",
+        "payment_method": "debit_card"
+    },
+    {
+        "id": "92a9ef2f-df92-4d57-918a-4cccd40f8312",
+        "timestamp": 1749370618.469256,
+        "amount": 191.96,
+        "merchant": "Rogers-Jones",
+        "customer_id": "6f3eb6b6-01c3-49bd-8d33-74c54cb256b5",
+        "payment_method": "cash"
+    },
+    {
+        "id": "08d704f4-9d05-4de6-ab64-0f8725e79cb8",
+        "timestamp": 1749370618.469476,
+        "amount": 452.67,
+        "merchant": "Cruz Group",
+        "customer_id": "79c232d9-5b92-4634-ae0e-1793076abb48",
+        "payment_method": "cash"
+    },
+    {
+        "id": "a5e60331-bcc4-4573-ac40-a0eaa24bf47c",
+        "timestamp": 1749370618.469832,
+        "amount": 477.19,
+        "merchant": "Johnson-Hall",
+        "customer_id": "0f60e807-53a3-416b-b66e-adeb36c11aab",
+        "payment_method": "credit_card"
+    },
+    {
+        "id": "f6f7d5c6-83b9-4f75-8734-62a479b1a0a0",
+        "timestamp": 1749370618.47021,
+        "amount": 616.95,
+        "merchant": "Thompson-Fernandez",
+        "customer_id": "592ab54b-856b-4af6-9a6a-647d9aa2e792",
+        "payment_method": "debit_card"
+    },
+    {
+        "id": "cc1a84c1-425e-4a91-be4d-9d6023160e89",
+        "timestamp": 1749370618.470695,
+        "amount": 135.69,
+        "merchant": "Williams, Nixon and Gamble",
+        "customer_id": "833ed193-221d-4455-8220-9353daac9e41",
+        "payment_method": "cash"
+    },
+    {
+        "id": "d4560368-25d2-464f-a0c6-40b5584a2fbb",
+        "timestamp": 1749370618.471189,
+        "amount": 573.61,
+        "merchant": "Webb, Castillo and Garcia",
+        "customer_id": "b2cd2790-629c-49e7-a723-3ebf625396f9",
+        "payment_method": "debit_card"
+    },
+    {
+        "id": "93ddce10-9b3f-4cad-a460-50fe3e275481",
+        "timestamp": 1749370618.471574,
+        "amount": 249.49,
+        "merchant": "Adams-Cochran",
+        "customer_id": "3b91ba1a-a915-4909-9fa6-3189375a87f8",
+        "payment_method": "credit_card"
+    },
+    {
+        "id": "5607a817-2fed-4ac3-8334-8c48aafd9034",
+        "timestamp": 1749370618.472069,
+        "amount": 937.61,
+        "merchant": "Johnson, Garrett and Taylor",
+        "customer_id": "d3527021-8b50-4d9b-bd0e-56a033e0c1de",
+        "payment_method": "debit_card"
+    },
+    {
+        "id": "b4a8ab5d-19d9-4f30-881c-9bc510dac562",
+        "timestamp": 1749370618.472356,
+        "amount": 246.37,
+        "merchant": "Johnson-Gibson",
+        "customer_id": "0c63ad06-e737-42e4-b76b-47b5a84d8333",
+        "payment_method": "credit_card"
+    },
+    {
+        "id": "a7222611-035f-4035-8499-0ac9d7760dae",
+        "timestamp": 1749370618.472515,
+        "amount": 628.57,
+        "merchant": "Reid LLC",
+        "customer_id": "5fdbdc91-9488-4158-87fb-394a3c406ba1",
+        "payment_method": "debit_card"
+    },
+    {
+        "id": "bac75680-4d02-48fa-a178-e2592c01026c",
+        "timestamp": 1749370618.47267,
+        "amount": 630.94,
+        "merchant": "Marquez Inc",
+        "customer_id": "3fb79fc4-a213-4b5b-b02e-593f3066b9d5",
+        "payment_method": "credit_card"
+    },
+    {
+        "id": "f45f5ca0-6fc9-4f3c-8e0a-a41f547a36c3",
+        "timestamp": 1749370618.472925,
+        "amount": 979.38,
+        "merchant": "Castro-Parker",
+        "customer_id": "29ba6d25-28a3-4c57-885a-7462397c9e85",
+        "payment_method": "credit_card"
+    },
+    {
+        "id": "3846dda6-851d-4395-a079-63326a3577b4",
+        "timestamp": 1749370618.473335,
+        "amount": 817.99,
+        "merchant": "Mayer, Pittman and Jones",
+        "customer_id": "56666591-98cd-4fa0-9c7b-5ce298f826a6",
+        "payment_method": "debit_card"
+    },
+    {
+        "id": "4a4fd0d0-e791-4deb-8a54-12a459057ced",
+        "timestamp": 1749370618.47381,
+        "amount": 543.74,
+        "merchant": "Carpenter, Wiggins and Hill",
+        "customer_id": "d2a2a815-1544-42c3-a59c-613e1113fd70",
+        "payment_method": "debit_card"
+    },
+    {
+        "id": "2e338ac1-a996-482c-92b0-3d89a0f1d22d",
+        "timestamp": 1749370618.474184,
+        "amount": 733.61,
+        "merchant": "Mills-Daniel",
+        "customer_id": "5f0e3336-a84e-403f-a79a-02695dfb1fd7",
+        "payment_method": "debit_card"
+    },
+    {
+        "id": "d85acb54-81b7-4266-a3a1-5773216bc1a9",
+        "timestamp": 1749370618.474393,
+        "amount": 87.41,
+        "merchant": "Warren Inc",
+        "customer_id": "b0da4545-0eb9-4e9d-9eb3-f357e93dfa91",
+        "payment_method": "cash"
+    }
+]

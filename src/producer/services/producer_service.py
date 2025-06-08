@@ -1,6 +1,6 @@
 import time
 from producer.infra.producer_repository import ProducerRepository
-from producer.services.transactions_factory import TransactionsFactory
+from common.services.transactions_factory import TransactionsFactory
 from config import settings
 
 
