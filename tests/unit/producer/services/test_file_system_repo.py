@@ -32,7 +32,7 @@ def test_append_transactions(
     file_name = "test_file"
 
     for tx in transactions:
-        filesystem_repo.append(tx, file_name)
+        filesystem_repo.add_transaction(tx, file_name)
 
     rows = read_rows(filesystem_repo, file_name)
     assert len(rows) == len(transactions), "Should be the same rows than transactions"

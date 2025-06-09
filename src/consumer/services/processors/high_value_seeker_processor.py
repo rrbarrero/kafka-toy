@@ -11,6 +11,6 @@ class HighValueProcessor:
         if batch:
             for transaction in batch:
                 if transaction.amount > 500:
-                    self.filesystem_repo.append(
+                    self.filesystem_repo.add_transaction(
                         transaction, f"high_value_{self.consumer_client_id}"
                     )

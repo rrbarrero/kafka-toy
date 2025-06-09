@@ -2,7 +2,8 @@ import threading
 import time
 import typer
 from factory import (
-    create_consumer_service,
+    create_consumer_service_bravo,
+    create_consumer_service_zulu,
     create_producer_service,
 )
 
@@ -16,7 +17,14 @@ def start_producer():
 
 
 def run_consumer(name: str):
-    service = create_consumer_service(name)
+    match name:
+        case "🔵 ZULU":
+            service = create_consumer_service_zulu(name)
+        case "🟣 BRAVO":
+            service = create_consumer_service_bravo(name)
+        case _:
+            raise ValueError(f"Invalid consumer name: {name}")
+
     service.start()
 
 
